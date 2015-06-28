@@ -1,0 +1,35 @@
+{
+  "name": "npm-remote-install",
+  "version": "0.0.1",
+  "description": "npm install to a remote",
+  "author": "Kengo Nakatsuka <kengo.nakatsuka@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/nak2k/node-npm-remote-install/issues"
+  },
+  "dependencies": {
+    "debug": "^2.2.0",
+    "fstream-npm": "^1.0.3",
+    "minimist": "^1.1.1",
+    "ssh2": "^0.4.9",
+    "ssh2-config": "0.0.2",
+    "tar-pack": "^2.0.0"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/nak2k/node-npm-remote-install",
+  "keywords": [],
+  "license": "MIT",
+  "bin": {
+    "npm-remote-install": "bin/cli"
+  },
+  "main": "lib",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nak2k/node-npm-remote-install.git"
+  },
+  "scripts": {},
+  "files": [
+    "README.md",
+    "bin/",
+    "lib/"
+  ]
+}
