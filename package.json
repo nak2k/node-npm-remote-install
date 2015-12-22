@@ -1,6 +1,6 @@
 {
   "name": "npm-remote-install",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "npm install to a remote",
   "author": "Kengo Nakatsuka <kengo.nakatsuka@gmail.com>",
   "bugs": {
@@ -16,7 +16,9 @@
   },
   "devDependencies": {},
   "homepage": "https://github.com/nak2k/node-npm-remote-install",
-  "keywords": [],
+  "keywords": [
+    "npm"
+  ],
   "license": "MIT",
   "bin": {
     "npm-remote-install": "bin/cli"
