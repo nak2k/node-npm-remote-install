@@ -1,8 +1,9 @@
-var pack = require('tar-pack').pack
-var FN = require('fstream-npm');
-var Client = require('ssh2').Client;
-var sshConfig = require('ssh2-config');
-var debug = require('debug')('npm-remote-install:installOnRemote');
+import { pack } from 'tar-pack';
+import FN from 'fstream-npm';
+import { Client } from 'ssh2';
+import sshConfig from 'ssh2-config';
+
+const debug = require('debug')('npm-remote-install:installOnRemote');
 
 module.exports = installOnRemote;
 
@@ -17,19 +18,19 @@ function installOnRemote(pkgDir, host, options, callback) {
     options.sudo = options.global;
   }
 
-  var c = new Client();
+  const c = new Client();
 
-  c.on('ready', function() {
+  c.on('ready', () => {
     debug('ready');
 
-    c.forwardIn('localhost', 0, function(err, port) {
+    c.forwardIn('localhost', 0, (err, port) => {
       if (err) {
         return c.emit('error', err);
       }
 
       debug("forwardIn port %d", port);
 
-      var cmd = [
+      const cmd = [
         options.sudo ? 'sudo' : '',
         'npm install',
         options.global ? '-g' : '',
@@ -38,7 +39,7 @@ function installOnRemote(pkgDir, host, options, callback) {
       
       debug("exec: %s", cmd);
 
-      c.exec(cmd, { pty: true }, function(err, stream) {
+      c.exec(cmd, { pty: true }, (err, stream) => {
         if (err) {
           return c.emit('error', err);
         }
@@ -61,10 +62,10 @@ function installOnRemote(pkgDir, host, options, callback) {
     });
   });
 
-  c.on('tcp connection', function(info, accept, reject) {
+  c.on('tcp connection', (info, accept, reject) => {
     debug('tcp connection');
 
-    var channel = accept();
+    const channel = accept();
 
     channel.on('close', function() {
       debug('close');
@@ -79,12 +80,12 @@ function installOnRemote(pkgDir, host, options, callback) {
     });
   });
 
-  c.once('error', function(err) {
+  c.once('error', err => {
     callback(err);
     c.end();
   });
 
-  sshConfig({ host: host, preferSsh2: true }, function(err, result) {
+  sshConfig({ host: host, preferSsh2: true }, (err, result) => {
     if (err) {
       return callback(err);
     }

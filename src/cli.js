@@ -1,9 +1,10 @@
-var parseArgs = require('minimist');
-var installOnRemote = require('./installOnRemote');
-var debug = require('debug')('npm-remote-install:cli');
+import parseArgs from 'minimist';
+import installOnRemote from './installOnRemote';
+
+const debug = require('debug')('npm-remote-install:cli');
 
 module.exports = function() {
-  var cliOpts = parseArgs(process.argv.slice(2), {
+  const cliOpts = parseArgs(process.argv.slice(2), {
     boolean: ['global', 'sudo'],
     alias: {
       global: 'g',
@@ -15,10 +16,9 @@ module.exports = function() {
     return;
   }
   
-  var pkgDir = cliOpts._[0];
-  var host = cliOpts._[1];
+  const [pkgDir, host] = cliOpts._;
 
-  installOnRemote(pkgDir, host, cliOpts, function(err) {
+  installOnRemote(pkgDir, host, cliOpts, err => {
     if (err) {
       throw err;
     }
