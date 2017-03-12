@@ -1,20 +1,24 @@
 {
   "name": "npm-remote-install",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "npm install to a remote",
   "author": "Kengo Nakatsuka <kengo.nakatsuka@gmail.com>",
   "bugs": {
     "url": "https://github.com/nak2k/node-npm-remote-install/issues"
   },
   "dependencies": {
-    "debug": "^2.3.2",
+    "debug": "^2.6.2",
     "fstream-npm": "^1.2.0",
     "minimist": "^1.1.1",
     "ssh2": "^0.5.4",
     "ssh2-config": "0.0.5",
     "tar-pack": "^3.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2017-node7": "^0.5.1",
+    "eslint": "^3.17.1"
+  },
   "homepage": "https://github.com/nak2k/node-npm-remote-install",
   "keywords": [
     "npm"
@@ -28,7 +32,10 @@
     "type": "git",
     "url": "git+https://github.com/nak2k/node-npm-remote-install.git"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "npm run lint && babel --presets es2017-node7 -d lib/ src/",
+    "lint": "eslint src"
+  },
   "files": [
     "README.md",
     "bin/",
