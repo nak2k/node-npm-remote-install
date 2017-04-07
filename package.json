@@ -15,7 +15,7 @@
     "tar-pack": "^3.3.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.23.0",
+    "babel-cli": "^6.24.1",
     "babel-preset-es2017-node7": "^0.5.1",
     "eslint": "^3.17.1"
   },
