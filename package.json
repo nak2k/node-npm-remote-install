@@ -1,6 +1,6 @@
 {
   "name": "npm-remote-install",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "npm install to a remote",
   "author": "Kengo Nakatsuka <kengo.nakatsuka@gmail.com>",
   "bugs": {
