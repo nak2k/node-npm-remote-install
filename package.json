@@ -15,7 +15,8 @@
     "tar-pack": "^3.4.1"
   },
   "devDependencies": {
-    "eslint": "^5.0.1"
+    "eslint": "^5.0.1",
+    "tape": "^4.10.1"
   },
   "homepage": "https://github.com/nak2k/node-npm-remote-install",
   "keywords": [
@@ -31,7 +32,8 @@
     "url": "git+https://github.com/nak2k/node-npm-remote-install.git"
   },
   "scripts": {
-    "lint": "eslint lib"
+    "lint": "eslint lib",
+    "test": "tape test/test*.js"
   },
   "files": [
     "README.md",
